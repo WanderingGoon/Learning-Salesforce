@@ -1,0 +1,109 @@
+public class Learning_Salesforce {
+    
+    //Learning_Salesforce.firstmethod();
+    
+    public static integer firstmethod(){
+        
+        integer varone = 3;
+        integer vartwo = 6;
+        integer varthree = varone + vartwo;
+        system.debug('My first debug '+ varthree);
+        return varthree;
+        
+    }
+    
+    public static void secondmethod(){
+        
+        string varone = 'Hello';
+        string vartwo = ' There.';
+        string varthree = varone + vartwo;
+        system.debug('My second debug '+ varthree);
+        
+    }
+    
+    public static void thirdmethod(){
+        
+        integer varone = 5;
+        string vartwo = '5';
+        integer varthree = varone + integer.valueof(vartwo);
+        system.debug('My Third Debug' + varthree);
+        
+        
+    }
+    
+    public static void fourthmethod(){
+        
+        Lead l = new Lead();
+        l.company = 'My new Company';
+        l.FirstName = 'Test';
+        l.LastName = 'tester';
+        l.Status = 'Open';
+        insert l;
+        
+    }
+    
+    public static void fifthmethod(){
+        
+        Account a = new Account();
+        a.name = 'Jamflex';
+        a.review__c = 'They are ok';
+        insert a;
+        system.debug('My Fourth Debug ' + a.Id);
+        
+    }
+    
+    public static void sixmethod(){
+        
+        // Create a list
+        List<Integer> ls1 = new List<Integer>();
+        // Add two integers to the list
+        ls1.add(1);
+        ls1.add(2);
+        ls1.add(3);
+        system.debug('First List Debug' + ls1);
+        
+    }
+    
+    public static void seventhmethod(){
+        
+        List<string> ls2 = new List<string>();
+        ls2.add('Hello');
+        ls2.add('There.');
+        ls2.add( 'General');
+        ls2.add('Kenobi!');
+        system.debug('Second List Debug' + ls2 + ls2.get(0) + ls2[1]);
+        
+         }
+    
+    public static void myquery(){
+        
+        List<account> accts = [select id, name from account where name = 'GenePoint'];  
+        system.debug('myquery debug' + accts);
+        
+    }
+    
+    public static void myloop(){
+        
+        List<account> accts1 = [select id,name from account];
+        account accts2 = [select id,name from account where id = '0015e000009aUTOAA2'];
+        List<account> accts3 = [select id from account];
+        List<account> accts4 = [select id from account];
+        List<account> accts5 = [select id from account];
+        List<account> accts6 = [select id from account];
+        List<account> accts7 = [select id from account];
+        List<account> accts8 = [select id from account];
+        
+        accts2.name = 'AMD Inc.';
+        update accts2;
+        
+        
+        
+        
+        
+        for (account i : accts1) {
+        System.debug(i);
+        
+    }
+    }   
+         
+}
