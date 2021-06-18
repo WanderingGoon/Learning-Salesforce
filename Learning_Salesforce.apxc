@@ -73,7 +73,7 @@ public class Learning_Salesforce {
         ls2.add('Kenobi!');
         system.debug('Second List Debug' + ls2 + ls2.get(0) + ls2[1]);
         
-         }
+    }
     
     public static void myquery(){
         
@@ -101,9 +101,42 @@ public class Learning_Salesforce {
         
         
         for (account i : accts1) {
-        System.debug(i);
+            System.debug(i);
+            
+        }
+    }
+    
+    
+    //UPLOADED TO GITHUB ^^^^^^^^^
+    //NOT UPLOADED TO GITHUB
+    
+    public static void FirstMap(){
+        
+        list<contact> cntct = [select accountid, id from contact where accountid != null];
+        map<id, contact> m = new Map<id,Contact>();
+        for(contact i : cntct){
+            m.put(i.accountid, i);
+            
+        }
+        system.debug('First Map Debug' + m);
+        system.debug('map index' + m.get(cntct[0].accountid));
+    }
+    
+    
+    public static void listmap(){
+        
+        List<contact> cntct = [select id, accountid from contact];
+        List<account> acc = [select id from account];
+        for(contact c : cntct){
+            for(account a : acc){
+                if(c.accountid == a.id){
+                    system.debug('account' + a);
+                    system.debug('contact' + c);
+                    
+                }
+            }
+        }
+        
         
     }
-    }   
-         
 }
